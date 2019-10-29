@@ -26,9 +26,6 @@
 	<modules>
 		<module>admin-api</module>
 		<module>admin-ui</module>
-		<module>admin-dao</module>
-		<module>admin-service</module>
-		<module>admin-service-facade</module>
 	</modules>
 
 	<dependencyManagement>
