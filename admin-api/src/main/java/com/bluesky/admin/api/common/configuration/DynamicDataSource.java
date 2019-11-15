@@ -2,6 +2,9 @@ package com.bluesky.admin.api.common.configuration;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 /**
  * @author Lijinchun
  * @Package com.bluesky.admin.api.common.configuration.DynamicDataSource
@@ -14,4 +17,13 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
         return DataSourceContextHolder.getDataSource();
     }
 
+    @Override
+    public Connection getConnection() throws SQLException {
+        return super.getConnection();
+    }
+
+    @Override
+    public Connection getConnection(String username, String password) throws SQLException {
+        return super.getConnection(username, password);
+    }
 }

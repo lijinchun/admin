@@ -1,0 +1,67 @@
+spring:
+  redis:
+    host: 127.0.0.1
+    password: 123456
+    database: 0
+    lettuce:
+      pool:
+        max-active: 50
+        max-idle: 50
+        min-idle: 10
+        max-wait: -1ms
+
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.jdbc.Driver
+      connection-timeout: 60000
+      idle-timeout: 60000
+      minimum-idle: 10
+      maximum-pool-size: 100
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1
+      auto-commit: false
+      pool-name: DatebookHikariCP
+      connection-init-sql: "select 1"
+
+    db-read:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: ${db.read.username}
+      password: ${db.read.password}
+      jdbc-url: jdbc:mysql://${db.read.host}:3306/admin?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+      type: com.zaxxer.hikari.HikariDataSource
+      connection-test-query: "SELECT 1"
+      pool-name: "DatebookHikariCP_READ"
+      read-only: true
+
+    db-write:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: ${db.write.username}
+      password: ${db.write.password}
+      jdbc-url: jdbc:mysql://${db.write.host}:3306/admin?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+      type: com.zaxxer.hikari.HikariDataSource
+      connection-test-query: "SELECT 1"
+      pool-name: "DatebookHikariCP_WRITE"
+
+  security:
+    user:
+      name: admin
+      password: admin1234
+      roles: admin
+mybatis:
+  mapper-locations: classpath*:mappers/*Mapper.xml
+mapper:
+  mappers: {tk.mybatis.mapper.common.Mapper, tk.mybatis.mapper.common.MySqlMapper}
+
+logging:
+  pattern:
+    console: "%date %-5level %clr(${PID:- }){magenta} [%-20thread] [%-55logger{50}]:%-4L - %msg%n"
+    file: "%date %-5level %clr(${PID:- }){magenta} [%-20thread] [%-55logger{50}]:%-4L - %msg%n"
+  file: /data/admin-api/logs/admin-api.log
+  level:
+    org.springframework.orm.jpa: DEBUG
+    com.bluesky.admin.api: DEBUG
+    org.springframework.transaction: DEBUG
+    # 打开Spring事务追踪日志
+    org.springframework.transaction.interceptor: trace
+    # 打开mybatis事务日志
+    org.mybatis.spring.SqlSessionUtils: debug

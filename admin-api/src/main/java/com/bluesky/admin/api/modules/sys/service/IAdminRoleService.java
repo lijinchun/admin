@@ -12,7 +12,7 @@ import com.github.pagehelper.PageInfo;
  * @Package com.bluesky.admin.api.modules.sys.service
  * @date 2019/7/30 22:54
  */
-public interface IAdminRoleReadService {
+public interface IAdminRoleService {
     /**
      * 检索角色信息
      * @param adminRoleRetrieveReq
@@ -40,16 +40,4 @@ public interface IAdminRoleReadService {
      * @return
      */
     boolean removeRole(RemoveRoleReq removeRoleReq);
-
-    /**
-     * 写入数据
-     * @param addRoleWithMenusReq
-     */
-    void doAddRoleWithMenus(AddRoleWithMenusReq addRoleWithMenusReq);
-
-    /**
-     *
-     * @param addRoleWithMenusReq
-     */
-    void doAddRoleWithMenusTx(AddRoleWithMenusReq addRoleWithMenusReq);
 }

@@ -1,13 +1,16 @@
 package com.bluesky.admin.api.common.configuration;
 
 import com.zaxxer.hikari.HikariDataSource;
+import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -50,7 +53,7 @@ public class DataSourceConfiguration {
     @Primary
     public DynamicDataSource  dataSource(@Qualifier("db_read")HikariDataSource dataSourceRead, @Qualifier("db_w")HikariDataSource datasourceWrite, @Qualifier("db_r_w")HikariDataSource datasourceReadWrite) {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
-        dynamicDataSource.setDefaultTargetDataSource(dataSourceRead);
+        dynamicDataSource.setDefaultTargetDataSource(datasourceWrite);
         Map<Object,Object> targetDataSources = new HashMap<>(8);
         targetDataSources.put(DataSourceEnum.FIRST,dataSourceRead);
         targetDataSources.put(DataSourceEnum.SECOND,datasourceWrite);
@@ -61,10 +64,17 @@ public class DataSourceConfiguration {
 
     @Value("${mybatis.mapper-locations}")
     private String mapperLocations;
+
+    @Autowired
+    private Interceptor[] plugins;
+
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean(@Qualifier("dataSource")DynamicDataSource dataSource) throws IOException {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
+        if(plugins != null){
+            factoryBean.setPlugins(plugins);
+        }
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         Resource[] resources =resolver.getResources(mapperLocations);
         factoryBean.setMapperLocations(resources);

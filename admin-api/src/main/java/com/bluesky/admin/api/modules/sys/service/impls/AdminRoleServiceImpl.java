@@ -7,7 +7,7 @@ import com.bluesky.admin.api.modules.sys.mapper.AdminRoleMapper;
 import com.bluesky.admin.api.modules.sys.mapper.AdminRoleMenuMapper;
 import com.bluesky.admin.api.modules.sys.model.AdminRole;
 import com.bluesky.admin.api.modules.sys.model.AdminRoleMenu;
-import com.bluesky.admin.api.modules.sys.service.IAdminRoleReadService;
+import com.bluesky.admin.api.modules.sys.service.IAdminRoleService;
 import com.bluesky.admin.api.modules.sys.vo.AdminRoleVO;
 import com.bluesky.admin.api.modules.sys.vo.req.AddRoleWithMenusReq;
 import com.bluesky.admin.api.modules.sys.vo.req.AdminRoleRetrieveReq;
@@ -28,9 +28,8 @@ import java.util.List;
  * @date 2019/7/30 23:07
  */
 @Service
-public class AdminRoleReadServiceImpl implements IAdminRoleReadService {
-    @Resource
-    private IAdminRoleReadService adminRoleReadService;
+public class AdminRoleServiceImpl implements IAdminRoleService {
+
     @Autowired
     private AdminRoleMapper adminRoleMapper;
     @Autowired
@@ -41,6 +40,7 @@ public class AdminRoleReadServiceImpl implements IAdminRoleReadService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean addRoleWithMenus(AddRoleWithMenusReq addRoleWithMenusReq) {
         AdminRole query = new AdminRole();
         query.setRoleCode(addRoleWithMenusReq.getRoleCode());
@@ -48,20 +48,7 @@ public class AdminRoleReadServiceImpl implements IAdminRoleReadService {
         if(result != null){
             throw new ServiceException("该角色代码已存在");
         }
-        adminRoleReadService.doAddRoleWithMenus(addRoleWithMenusReq);
-        return true;
-    }
 
-    @DS(DataSourceEnum.SECOND)
-    @Override
-    public void doAddRoleWithMenus(AddRoleWithMenusReq addRoleWithMenusReq) {
-        adminRoleReadService.doAddRoleWithMenusTx(addRoleWithMenusReq);
-
-    }
-
-    @Transactional(rollbackFor = Exception.class)
-    @Override
-    public void doAddRoleWithMenusTx(AddRoleWithMenusReq addRoleWithMenusReq) {
         //1、插入角色数据
         AdminRole role = addRoleWithMenusReq.toModelWithBaseInfo(AdminRole.class);
         adminRoleMapper.insert(role);
@@ -80,6 +67,7 @@ public class AdminRoleReadServiceImpl implements IAdminRoleReadService {
             }
             adminRoleMenuMapper.insertList(roleMenus);
         }
+        return true;
     }
 
     @Override

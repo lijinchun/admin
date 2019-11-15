@@ -14,7 +14,7 @@ import java.util.Date;
 
 /**
  * @author Lijinchun
- * @Package com.wywk.member.expiredclean.common.controller.BaseController
+ * @Package com.bluesky.admin.api.common.controller.BaseController
  * @date 2019/7/22 16:40
  */
 @ApiIgnore
