@@ -22,11 +22,14 @@
 		<vaadin.version>14.0.6</vaadin.version>
 		<mybatis.version>2.1.0</mybatis.version>
 		<mysql.version>5.1.47</mysql.version>
+		<dockerfile.maven.version>1.4.9</dockerfile.maven.version>
+		<docker.registry.name.prefix>lijinchun</docker.registry.name.prefix>
 	</properties>
 
 	<modules>
 		<module>admin-api</module>
 		<module>admin-ui</module>
+		<module>config-nacos</module>
 	</modules>
 
 	<dependencyManagement>
@@ -128,6 +131,11 @@
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
 					<version>${springboot.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>com.spotify</groupId>
+					<artifactId>dockerfile-maven-plugin</artifactId>
+					<version>${dockerfile.maven.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>

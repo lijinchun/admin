@@ -147,6 +147,19 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<configuration>
+					<repository>${docker.registry.name.prefix}/${project.artifactId}</repository>
+					<tag>${project.version}</tag>
+					<buildArgs>
+						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+					<finalName>${project.build.finalName}.jar</finalName>
+					<username></username>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
