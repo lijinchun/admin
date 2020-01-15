@@ -1,5 +1,6 @@
 package com.bluesky.admin.api;
 
+import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -11,6 +12,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @MapperScan(basePackages = {"com.bluesky.admin.api.modules.sys.mapper"}, annotationClass = Repository.class)
+@NacosPropertySource(dataId = "admin-api", autoRefreshed = true)
 public class AdminApiApplication {
 
     public static void main(String[] args) {

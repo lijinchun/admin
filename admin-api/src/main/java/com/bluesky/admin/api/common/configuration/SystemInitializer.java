@@ -20,6 +20,6 @@ public class SystemInitializer implements ApplicationListener<ContextRefreshedEv
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        log.info("Spring 已经加载完毕");
+        log.info("Spring context loaded");
     }
 }

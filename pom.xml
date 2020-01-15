@@ -22,6 +22,7 @@
 		<vaadin.version>14.0.6</vaadin.version>
 		<mybatis.version>2.1.0</mybatis.version>
 		<mysql.version>5.1.47</mysql.version>
+		<alibaba.config.nacos>0.2.3</alibaba.config.nacos>
 		<dockerfile.maven.version>1.4.9</dockerfile.maven.version>
 		<docker.registry.name.prefix>lijinchun</docker.registry.name.prefix>
 	</properties>
@@ -104,6 +105,15 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
+			<!-- alibaba nacos -->
+			<dependency>
+				<groupId>com.alibaba.boot</groupId>
+				<artifactId>nacos-config-spring-boot-starter</artifactId>
+				<version>${alibaba.config.nacos}</version>
+			</dependency>
+
+
 
 			<!-- vaadin -->
 			<dependency>

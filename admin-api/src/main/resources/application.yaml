@@ -65,3 +65,7 @@ logging:
     org.springframework.transaction.interceptor: trace
     # 打开mybatis事务日志
     org.mybatis.spring.SqlSessionUtils: debug
+
+nacos:
+  config:
+    server-addr: "nacos.2tool.cn"
