@@ -8,14 +8,19 @@ MAINTAINER lijinchun <bluesky89@aliyun.com>
 #允许指定端口转发
 EXPOSE 8080
 EXPOSE 8000
+
+# docker build --build-arg JAR_FILE=admin-api.jar 参数, dockerfile 用${mapkey}使用
+ARG JAR_FILE
+
 # VOLUME 指定了临时文件目录为/tmp。
 # 其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp
 VOLUME /tmp 
 # 将jar包添加到容器中并更名为app.jar
-ADD target/admin-api.jar admin-api.jar
+ADD target/${JAR_FILE} ${JAR_FILE}
 # 运行jar包
 RUN bash -c 'touch /admin-api.jar'
 
+ENV DOCKER_FILE_JAR_FILE=${JAR_FILE}
 ENV JAVA_OPTS=""
 # security.egd eg: "-Djava.security.egd=file:/dev/./urandom"
 ENV JAVA_OPT_SECURITY=""
@@ -23,6 +28,6 @@ ENV JAVA_OPT_SECURITY=""
 ENV JAVA_OPT_DEBUG=""
 # file encoding default UTF-8
 ENV JAVA_OPT_FILE_ENCODING="UTF-8"
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS $JAVA_OPT_SECURITY -Dfile.encoding=$JAVA_OPT_FILE_ENCODING -jar $JAVA_OPT_DEBUG /admin-api.jar" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS $JAVA_OPT_SECURITY -Dfile.encoding=$JAVA_OPT_FILE_ENCODING -jar $JAVA_OPT_DEBUG /$DOCKER_FILE_JAR_FILE" ]
 
 #docker run -d -p 8080:8080 -p 8000:8000 --name admin-api lijinchun/admin-api:dev
