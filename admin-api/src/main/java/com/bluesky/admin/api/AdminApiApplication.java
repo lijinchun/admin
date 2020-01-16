@@ -10,9 +10,9 @@ import tk.mybatis.spring.annotation.MapperScan;
 /**
  * @author 李金春
  */
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication
 @MapperScan(basePackages = {"com.bluesky.admin.api.modules.sys.mapper"}, annotationClass = Repository.class)
-@NacosPropertySource(dataId = "admin-api", autoRefreshed = true)
+@NacosPropertySource(dataId = "admin-api", autoRefreshed = true, groupId = "admin")
 public class AdminApiApplication {
 
     public static void main(String[] args) {

@@ -1,3 +1,6 @@
+nacos:
+  config:
+    server-addr: "nacos.2tool.cn:8848"
 spring:
   redis:
     host: redis.2tool.cn
@@ -11,16 +14,21 @@ spring:
         max-wait: -1ms
 
   datasource:
+    username: ${db.datasource.username}
+    password: ${db.datasource.password}
+    name: main-datasource
+    url: jdbc:mysql://${db.datasource.host}:3306/admin?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      driver-class-name: com.mysql.jdbc.Driver
       connection-timeout: 60000
       idle-timeout: 60000
       minimum-idle: 10
       maximum-pool-size: 100
       max-lifetime: 1800000
-      connection-test-query: SELECT 1
+      connection-test-query: select 1
       auto-commit: false
-      pool-name: DatebookHikariCP
+      pool-name: main-hikari-pool
       connection-init-sql: "select 1"
 
     db-read:
@@ -65,7 +73,3 @@ logging:
     org.springframework.transaction.interceptor: trace
     # 打开mybatis事务日志
     org.mybatis.spring.SqlSessionUtils: debug
-
-nacos:
-  config:
-    server-addr: "nacos.2tool.cn"
