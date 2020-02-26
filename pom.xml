@@ -14,8 +14,9 @@
 		<spring-cloud.version>Greenwich.SR3</spring-cloud.version>
 		<dubbo.version>2.7.3</dubbo.version>
 		<revision>0.0.1</revision>
-		<springboot.version>2.1.8.RELEASE</springboot.version>
+		<springboot.version>2.2.4.RELEASE</springboot.version>
 		<swagger.version>2.9.2</swagger.version>
+		<swagger.bootstrap.version>1.9.3</swagger.bootstrap.version>
 		<mapper.version>2.1.5</mapper.version>
 		<pagehelper.version>1.2.12</pagehelper.version>
 		<fastjson.version>1.2.47</fastjson.version>
@@ -25,12 +26,15 @@
 		<alibaba.config.nacos>0.2.3</alibaba.config.nacos>
 		<dockerfile.maven.version>1.4.9</dockerfile.maven.version>
 		<docker.registry.name.prefix>lijinchun</docker.registry.name.prefix>
+		<spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
 	</properties>
 
 	<modules>
 		<module>admin-api</module>
 		<module>admin-ui</module>
 		<module>config-nacos</module>
+		<module>admin-service</module>
+		<module>admin-common</module>
 	</modules>
 
 	<dependencyManagement>
@@ -67,6 +71,11 @@
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-swagger2</artifactId>
 				<version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.xiaoymin</groupId>
+				<artifactId>swagger-bootstrap-ui</artifactId>
+				<version>${swagger.bootstrap.version}</version>
 			</dependency>
 
 			<!-- mybatis -->
@@ -110,6 +119,11 @@
 			<dependency>
 				<groupId>com.alibaba.boot</groupId>
 				<artifactId>nacos-config-spring-boot-starter</artifactId>
+				<version>${alibaba.config.nacos}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.boot</groupId>
+				<artifactId>nacos-config-spring-boot-actuator</artifactId>
 				<version>${alibaba.config.nacos}</version>
 			</dependency>
 

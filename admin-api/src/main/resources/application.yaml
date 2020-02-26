@@ -73,3 +73,10 @@ logging:
     org.springframework.transaction.interceptor: trace
     # 打开mybatis事务日志
     org.mybatis.spring.SqlSessionUtils: debug
+management:
+  endpoint:
+    health:
+      show-details: "always"
+    web:
+      exposure:
+        include: "*"

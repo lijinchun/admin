@@ -1,4 +1,4 @@
-package com.bluesky.admin.api.common.configuration;
+package com.bluesky.admin.common.configuration;
 
 import com.bluesky.admin.api.common.consts.DefConstants;
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;

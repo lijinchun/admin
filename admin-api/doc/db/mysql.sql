@@ -20,10 +20,10 @@ CREATE TABLE `admin_role` (
   `role_code` varchar(50) NOT NULL COMMENT '角色代码',
   `role_name` varchar(100) NOT NULL COMMENT '名字',
   `remark` varchar(100) DEFAULT NULL COMMENT '备注',
-  `created_at` timestamp NOT NULL COMMENT '创建时间',
-  `created_by` varchar(100) NOT NULL COMMENT '创建者',
-  `updated_at` timestamp NOT NULL COMMENT '更新时间',
-  `updated_by` varchar(100) NOT NULL COMMENT '更新者',
+  `created_at` timestamp NULL DEFAULT NULL COMMENT '创建时间',
+  `created_by` varchar(100) DEFAULT NULL COMMENT '创建者',
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `upcated_by` varchar(100) DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`),
   UNIQUE KEY `role_code_UNIQUE` (`role_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='角色表';
@@ -46,7 +46,7 @@ CREATE TABLE `admin_user` (
   `last_login_type` varchar(2) DEFAULT NULL COMMENT '最后登录类型：00-用户名密码，01-微信，02-钉钉，03-邮箱，04-手机短信，05-手机密码',
   `created_at` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `created_by` varchar(100) DEFAULT NULL COMMENT '创建者',
-  `updated_time` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   `upcated_by` varchar(100) DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id_UNIQUE` (`user_id`)

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.bluesky.admin</groupId>
 		<artifactId>admin-parent</artifactId>
 		<version>${revision}</version>
 	</parent>
-	<artifactId>admin-api</artifactId>
-	<packaging>jar</packaging>
+	<groupId>com.bluesky.admin</groupId>
+	<artifactId>admin-service</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>${project.artifactId}</name>
+	<packaging>jar</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -24,6 +26,7 @@
 		</dependency>
 	</dependencies>
 
+
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
@@ -32,7 +35,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<!-- 打包发版必配置 -->
 				<configuration>
-					<mainClass>com.bluesky.admin.api.AdminApiApplication</mainClass>
+					<mainClass>com.bluesky.admin.service.ServiceApplication</mainClass>
 				</configuration>
 				<executions>
 					<execution>
