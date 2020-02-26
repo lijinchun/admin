@@ -1,6 +1,6 @@
 package com.bluesky.admin.common.configuration;
 
-import com.bluesky.admin.api.common.annotation.DS;
+import com.bluesky.admin.common.annotation.DS;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;

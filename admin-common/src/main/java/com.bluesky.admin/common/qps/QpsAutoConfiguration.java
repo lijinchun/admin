@@ -1,7 +1,7 @@
 package com.bluesky.admin.common.qps;
 
-import com.bluesky.admin.api.common.annotation.DS;
-import com.bluesky.admin.api.common.qps.annotation.Qps;
+import com.bluesky.admin.common.annotation.DS;
+import com.bluesky.admin.common.qps.annotation.Qps;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;

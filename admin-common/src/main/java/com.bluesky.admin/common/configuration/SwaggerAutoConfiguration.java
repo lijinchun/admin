@@ -1,6 +1,6 @@
 package com.bluesky.admin.common.configuration;
 
-import com.bluesky.admin.api.common.consts.DefConstants;
+import com.bluesky.admin.common.consts.DefConstants;
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +42,7 @@ public class SwaggerAutoConfiguration implements WebMvcConfigurer {
                 .apiInfo(apiInfo())
                 .select()
                 //此包路径下的类，才生成接口文档
-                .apis(RequestHandlerSelectors.basePackage("com.bluesky.admin.api"))
+                .apis(RequestHandlerSelectors.basePackage("com.bluesky.admin"))
                 //加了ApiOperation注解的类，才生成接口文档
                 .apis(RequestHandlerSelectors.withClassAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())

@@ -2,7 +2,7 @@ package com.bluesky.admin.common.annotation;
 
 
 
-import com.bluesky.admin.api.common.configuration.DataSourceEnum;
+import com.bluesky.admin.common.configuration.DataSourceEnum;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

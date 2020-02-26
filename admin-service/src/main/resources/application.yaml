@@ -1,0 +1,30 @@
+nacos:
+  config:
+    server-addr: "127.0.0.1:8848"
+  discovery:
+    server-addr: "127.0.0.1:8848"
+spring:
+  security:
+    user:
+      name: admin
+      password: admin1234
+      roles: admin
+  redis:
+    host: redis.2tool.cn
+    password: 123456
+    database: 0
+    lettuce:
+      pool:
+        max-active: 50
+        max-idle: 50
+        min-idle: 10
+        max-wait: -1ms
+  application:
+    name: "admin-service"
+management:
+  endpoint:
+    health:
+      show-details: "always"
+    web:
+      exposure:
+        include: "*"

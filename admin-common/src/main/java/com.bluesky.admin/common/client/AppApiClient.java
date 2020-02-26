@@ -1,11 +1,11 @@
 package com.bluesky.admin.common.client;
 
-import com.bluesky.admin.api.common.client.dto.req.BaseAppAipReq;
-import com.bluesky.admin.api.common.client.dto.req.NotifyReq;
-import com.bluesky.admin.api.common.client.dto.resp.NotifyResp;
-import com.bluesky.admin.api.common.consts.RedisConstant;
-import com.bluesky.admin.api.modules.sys.service.IRedisConfig;
-import com.bluesky.admin.api.common.utils.RedisUtil;
+import com.bluesky.admin.common.client.dto.req.BaseAppAipReq;
+import com.bluesky.admin.common.client.dto.req.NotifyReq;
+import com.bluesky.admin.common.client.dto.resp.NotifyResp;
+import com.bluesky.admin.common.consts.RedisConstant;
+import com.bluesky.admin.common.service.IRedisConfig;
+import com.bluesky.admin.common.utils.RedisUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

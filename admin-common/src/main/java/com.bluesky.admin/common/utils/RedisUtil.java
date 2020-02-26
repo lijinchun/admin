@@ -1,8 +1,8 @@
 package com.bluesky.admin.common.utils;
 
-import com.bluesky.admin.api.common.configuration.RedisConfiguration;
+import com.bluesky.admin.common.configuration.RedisConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.Cursor;
@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @ConditionalOnClass(RedisConfiguration.class)
 public class RedisUtil {
-    @Resource(name = "stringValueTemplate")
+    @Resource
     private RedisTemplate<String, String> redisTemplate;
 
     public void setRedisTemplate(StringRedisTemplate redisTemplate) {

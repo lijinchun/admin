@@ -1,6 +1,6 @@
 package com.bluesky.admin.common.client.util;
 
-import com.bluesky.admin.api.common.client.exception.ApiClientException;
+import com.bluesky.admin.common.client.exception.ApiClientException;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.charset.StandardCharsets;
