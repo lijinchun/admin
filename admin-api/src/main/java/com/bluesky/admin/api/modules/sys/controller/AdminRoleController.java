@@ -1,7 +1,7 @@
 package com.bluesky.admin.api.modules.sys.controller;
 
-import com.bluesky.admin.api.common.client.ApiResult;
-import com.bluesky.admin.api.common.controller.BaseController;
+import com.bluesky.admin.common.client.ApiResult;
+import com.bluesky.admin.common.controller.BaseController;
 import com.bluesky.admin.api.modules.sys.vo.AdminRoleVO;
 import com.bluesky.admin.api.modules.sys.vo.req.AddRoleWithMenusReq;
 import com.bluesky.admin.api.modules.sys.vo.req.AdminRoleRetrieveReq;

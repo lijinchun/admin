@@ -1,8 +1,8 @@
 package com.bluesky.admin.api.modules.sys.service.impls;
 
-import com.bluesky.admin.api.common.annotation.DS;
-import com.bluesky.admin.api.common.configuration.DataSourceEnum;
-import com.bluesky.admin.api.common.exception.ServiceException;
+import com.bluesky.admin.common.annotation.DS;
+import com.bluesky.admin.common.configuration.DataSourceEnum;
+import com.bluesky.admin.common.exception.ServiceException;
 import com.bluesky.admin.api.modules.sys.mapper.AdminRoleMapper;
 import com.bluesky.admin.api.modules.sys.mapper.AdminRoleMenuMapper;
 import com.bluesky.admin.api.modules.sys.model.AdminRole;

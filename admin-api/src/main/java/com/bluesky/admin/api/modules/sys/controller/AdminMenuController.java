@@ -1,6 +1,6 @@
 package com.bluesky.admin.api.modules.sys.controller;
 
-import com.bluesky.admin.api.common.controller.BaseController;
+import com.bluesky.admin.common.controller.BaseController;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
