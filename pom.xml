@@ -27,7 +27,7 @@
 		<fastjson.version>1.2.47</fastjson.version>
 		<vaadin.version>14.0.6</vaadin.version>
 		<mybatis.version>2.1.0</mybatis.version>
-		<mysql.version>5.1.47</mysql.version>
+		<mysql.version>8.0.28</mysql.version>
 		<alibaba.config.nacos>0.2.3</alibaba.config.nacos>
 		<dockerfile.maven.version>1.4.9</dockerfile.maven.version>
 		<docker.registry.name.prefix>lijinchun</docker.registry.name.prefix>
